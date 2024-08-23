@@ -1,234 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-/* Zera o padding e margin de todos os elementos, define o box-sizing como border-box 
-   e define a fonte padrão como Verdana com cor padrão */
-   * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
-    color: #070d27;
-  }
-  
-  /* Define uma imagem de fundo centralizada e redimensionada para cobrir toda a tela */
-  body {
-  background-image: url("../img/beautiful-photo-sea-waves.jpg");
-  background-position: center;
-  background-size: cover;
-  }
-  
-  
-  /* Estilo dos botões com cores, borda, padding e transições para o efeito hover */
-  button {
-    background-color: #1B4F72; /* Azul oceano escuro */
-    color: #000000;
-    border: none;
-    padding: 0.3rem 0.6rem;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-  }
-  
-  /* Altera a cor de fundo do botão e a cor do ícone ao passar o mouse */
-  button:hover {
-    background-color: #117A8B; /* Azul oceano mais claro */
-  }
-  
-  button:hover > i {
-    color: #DAF7A6; /* Verde água */
-  }
-  
-  /* Estilo para os ícones dentro dos botões */
-  button i {
-    pointer-events: none;
-    color: #ffffff;
-    font-weight: bold;
-  }
-  
-  /* Estilo para inputs e selects */
-  input,
-  select {
-    padding: 0.25rem 0.5rem;
-    border-radius: 5px;
-    border: none;
-    color: #082a42;
-    border: none;
-    
-  }
-  
-  /* Classe para esconder elementos */
-  .hide {
-    display: none;
-  }
-  h1,p{
-    color: white;
-  }
-  /* Todo Header */
-  /* Container principal do Todo com largura máxima, centralizado com margem e padding */
-  .todo-container {
-    max-width: 450px;
-    margin: 3rem auto 0;
-    background-color: #011c26b9;
-    padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0px 9px 30px 0px rgba(94, 94, 94, 0.4);
-  }
-  
-  /* Header do Todo com alinhamento central e borda inferior */
-  .todo-container header {
-    text-align: center;
-    
-    padding: 0 1rem 1rem;
-    border-bottom: 1px solid #0E4D64; /* Azul oceano */
-  }
-  
-  /* Todo Form */
-  
-  /* Estilo para o formulário de adição e edição de todo com padding e borda inferior */
-  #todo-form,
-  #edit-form {
-    padding: 1rem;
-    border-bottom: 1px solid #0E4D64; /* Azul oceano */
-  }
-  
-  /* Parágrafos dentro dos formulários com margem inferior e negrito */
-  #todo-form p,
-  #edit-form p {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-  }
-  
-  /* Controle do formulário com display flex */
-  .form-control {
-    display: flex;
-    gap: 10PX;
-  }
-  
-  /* Input dentro do controle do formulário com margem à direita */
-  .form-control input {
-    margin-right: 0.3rem;
-    border-radius: 5px;
-    border: 1px solid #117A8B; /* Borda azul oceano */
-  }
-  
-  /* Botão de cancelar edição com margem superior e cor específica */
-  #cancel-edit-btn {
-    margin-top: 1rem;
-    color: #ffffff; /* Azul oceano escuro */
-  }
-  
-  /* Todo Toolbar */
-  
-  /* Barra de ferramentas com padding, borda inferior e display flex */
-  #toolbar {
-    padding: 1rem;
-    border-bottom: 1px solid #117A8B; /* Azul oceano */
-    display: flex;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
 
-  }
-  
-  /* Título da barra de ferramentas com margem inferior */
-  #toolbar h4 {
-    margin-bottom: 0.5rem;
-    color:white
-  }
-  
-  /* Área de busca com borda direita, padding, margem e largura específica */
-  #search {
-    border-right: 1px solid #117A8B; /* Azul oceano */
-    padding-right: 1rem;
-    margin-right: 1rem;
-    width: 65%;
-    display: flex;
-    flex-direction: column;
-    
-  }
-  
-  /* Formulário de busca com display flex */
-  #search form {
-    display: flex;
-  
-  }
-  
-  /* Input dentro do formulário de busca com largura total e margem à direita */
-  #search input {
-    width: 100%;
-    margin-right: 0.3rem;
-    border-radius: 5px;
-    border: 1px solid #117A8B; /* Borda azul oceano */
-  }
-  
-  /* Área de filtro com largura específica e display flex */
-  #filter {
-    width: 35%;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Select dentro do filtro com flex 1 */
-  #filter select {
-    flex: 1;
-    border-radius: 5px;
-    border: none; /* Borda azul oceano */
-
-  }
-  
-  /* Todo List */
-  
-  /* Item da lista de todo com display flex, padding, borda inferior e transição */
-  .todo {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 1rem 1rem;
-    border-bottom: 1px solid #117A8B; /* Azul oceano */
-    transition: 0.3s;
-  }
-  
-  /* Título do item da lista de todo com flex 1 e tamanho de fonte específico */
-  .todo h3 {
-    flex: 1;
-    font-size: 0.9rem;
-    color: white;
-  }
-  
-  /* Botão dentro do item da lista de todo com margem à esquerda */
-  .todo button {
-    margin-left: 0.4rem;
-  }
-  
-  /* Estilo para itens concluídos */
-  .done {
-    background: #117A8B; /* Azul oceano mais claro */
-  }
-  
-  /* Título do item concluído com cor branca, texto riscado e estilo itálico */
-  .done h3 {
-    color: #ffffff;
+.completed {
     text-decoration: line-through;
-    font-style: italic;
-  }
-  
-  .priority {
-    padding: 0.2rem 0.5rem;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    margin-left: 0.5rem;
-    color: white;
-  }
-  
-  .priority.baixa {
-    background-color: #66CDAA; /* Verde marinho */
-  }
-  
-  .priority.media {
-    background-color: #FFD700; /* Amarelo */
-  }
-  
-  .priority.alta {
-    background-color: #FF4500; /* Vermelho alaranjado */
-  }
-  
+    color: gray; /* Opcional: muda a cor do texto para cinza */
+}
 
+
+
+
+
+h1{
+  color: #ccc;
+}
+body{
+background: rgb(35,35,36);background: linear-gradient(90deg, rgba(35,35,36,1) 0%, rgba(64,52,52,1) 35%, rgba(46,46,46,1) 100%);;
+}
+.container {
+  background-color: rgba(73, 72, 72, 0.11) ;
+  border-radius: 16px;
+  box-shadow: rgba(240, 46, 46, 0.4) 0px 5px, rgba(240, 46, 46, 0.3) 0px 10px, rgba(240, 46, 46, 0.2) 0px 15px, rgba(240, 46, 46, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px ; 
+}
+.card-body {
+  color: white;
+  border-radius: 10px;
+  background:rgb(35,35,36);background: linear-gradient(90deg, rgba(35,35,36,1) 0%, rgba(64,52,52,1) 35%, rgba(46,46,46,1) 100%); 
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+}
+.card{
+  border-radius: 16px;
+  border:none ;
+}
+/* Botão de Adição Personalizado */
+.btn-custom-add {
+  background-color: #192c1d; /* Verde personalizado */
+  color: #fff; /* Texto branco */
+}
+
+.btn-custom-add:hover {
+  background-color: #218838; /* Verde mais escuro ao passar o mouse */
+}
+
+/* Botão de Edição Personalizado */
+.btn-custom-edit {
+  background-color: #7a171783; /* Azul personalizado */
+  color: #fff; /* Texto branco */
+}
+
+.btn-custom-edit:hover {
+  background-color: #0069d9; /* Azul mais escuro ao passar o mouse */
+}
+
+/* Botão de Exclusão Personalizado */
+.btn-custom-delete {
+  background-color: #972430; /* Vermelho personalizado */
+  color: #fff; /* Texto branco */
+}
+
+.btn-custom-delete:hover {
+  background-color: #6b0711; /* Vermelho mais escuro ao passar o mouse */
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #000000;
+  border-color: #007bff;
+}
