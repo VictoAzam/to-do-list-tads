@@ -20,6 +20,7 @@ h1{
 body{
 background: rgb(35,35,36);background: linear-gradient(90deg, rgba(35,35,36,1) 0%, rgba(64,52,52,1) 35%, rgba(46,46,46,1) 100%);;
 }
+
 .container {
   background-color: rgba(73, 72, 72, 0.11) ;
   border-radius: 16px;
@@ -32,6 +33,12 @@ background: rgb(35,35,36);background: linear-gradient(90deg, rgba(35,35,36,1) 0%
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
 }
+
+/* .h1-priority {
+  padding-bottom: 1px;
+  font-size: 10px;
+} */
+
 .card{
   border-radius: 16px;
   border:none ;
@@ -71,3 +78,4 @@ background: rgb(35,35,36);background: linear-gradient(90deg, rgba(35,35,36,1) 0%
   background-color: #000000;
   border-color: #007bff;
 }
+
