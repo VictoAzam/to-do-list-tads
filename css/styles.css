@@ -12,7 +12,13 @@
 
 
 
-
+#todo-list {
+  display: flex;          /* Flexbox para organizar os cards */
+  flex-wrap: wrap;        /* Permitir que os cards ocupem várias linhas */
+  gap: 20px;              /* Espaçamento entre os cards */
+  padding: 20px;
+  justify-content: flex-start; /* Alinhar os cards ao início do container */
+}
 
 h1{
   color: #ccc;
@@ -33,15 +39,9 @@ background: rgb(35,35,36);background: linear-gradient(90deg, rgba(35,35,36,1) 0%
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
 }
-
-/* .h1-priority {
-  padding-bottom: 1px;
-  font-size: 10px;
-} */
-
 .card{
-  border-radius: 16px;
-  border:none ;
+  box-sizing: border-box;
+  margin-bottom: 20px; 
 }
 /* Botão de Adição Personalizado */
 .btn-custom-add {
@@ -79,3 +79,28 @@ background: rgb(35,35,36);background: linear-gradient(90deg, rgba(35,35,36,1) 0%
   border-color: #007bff;
 }
 
+/* Barra de pesquisa */
+
+.search-bar {
+  position: relative;
+  padding: 15px ;
+  width: 450px;
+}
+
+.search-todo {
+  width: 435px;
+  padding: 10px 30px 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.search-bar i {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #aaa;
+  pointer-events: none;
+}
