@@ -1,18 +1,18 @@
-function displayTasks() {
+function displayTasks() { // a função displayTask responsavel por exibir todas as tarefas armazenadas
   
     const todoList = document.getElementById('todo-list');
 
     todoList.innerHTML = '';
 
-    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];// vai obter as tarefas no local storage e as converte em json para um array de objetos
 
-    tasks.forEach((task, index) => {
+    tasks.forEach((task, index) => {// intera sobre cada iten no array
       
-        const card = document.createElement('div');
+        const card = document.createElement('div');// cria uma div
        
-        card.className = 'col-md-4';
+        card.className = 'col-md-4';// define a classe do card ocupar 4 colunas
 
-        let badgeClass;
+        let badgeClass;// lista de prioridades let pq os resultados pode variar
         switch (task.priority) {
             case 'baixa':
                 badgeClass = 'bg-success'; 
@@ -27,8 +27,8 @@ function displayTasks() {
                 badgeClass = ''; 
         }
 
-  
-        card.innerHTML = `
+  //manipulacao da dom para alterar o titulo, badge de prioridade, botoes de ação, ? -->  condicional  true or false
+        card.innerHTML = ` 
         <div class="card mb-3">
             <div class="card-body">
                 <h5 class="card-title ${task.completed ? 'completed' : ''}">${task.text}</h5>
@@ -41,14 +41,14 @@ function displayTasks() {
         `;
 
 
-        todoList.appendChild(card);
+        todoList.appendChild(card); // adiciona card recem criado ao elemento da lista  na tarefas da paginas
 
       
-        card.querySelector('.delete-task').addEventListener('click', function () {
+        card.querySelector('.delete-task').addEventListener('click', function () { // ao clicar deleta a task
 
             tasks.splice(index, 1);
    
-            localStorage.setItem("tasks", JSON.stringify(tasks));
+            localStorage.setItem("tasks", JSON.stringify(tasks));//transforma js para json
 
             displayTasks();
         });
@@ -135,5 +135,5 @@ document.getElementById('todo-form').addEventListener('submit', function(event) 
 
 
 window.onload = function() {
-    displayTasks();
+    displayTasks(); // define uma funcao quando a pagina for recarregada
 };
