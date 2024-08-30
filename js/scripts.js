@@ -1,37 +1,33 @@
-// Função para exibir as tarefas na tela
 function displayTasks() {
-    // Obtém o elemento HTML onde a lista de tarefas será exibida
+  
     const todoList = document.getElementById('todo-list');
-    // Limpa o conteúdo atual da lista de tarefas
+
     todoList.innerHTML = '';
 
-    // Obtém as tarefas armazenadas no localStorage. Se não houver tarefas, usa um array vazio.
     const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-    // Itera sobre cada tarefa na lista de tarefas
     tasks.forEach((task, index) => {
-        // Cria um novo elemento 'div' para representar um card de tarefa
+      
         const card = document.createElement('div');
-        // Define a classe do card para controlar o layout com o Bootstrap
+       
         card.className = 'col-md-4';
 
-        // Define a classe do badge de prioridade com base na prioridade da tarefa
         let badgeClass;
         switch (task.priority) {
             case 'baixa':
-                badgeClass = 'bg-success'; // Verde para baixa
+                badgeClass = 'bg-success'; 
                 break;
             case 'media':
-                badgeClass = 'bg-warning'; // Amarelo para média
+                badgeClass = 'bg-warning';
                 break;
             case 'alta':
-                badgeClass = 'bg-danger'; // Vermelho para alta
+                badgeClass = 'bg-danger'; 
                 break;
             default:
-                badgeClass = ''; // Garantir que sempre tenha uma classe
+                badgeClass = ''; 
         }
 
-        // Adiciona o conteúdo HTML ao card, incluindo título da tarefa, badge de prioridade e botões de ação
+  
         card.innerHTML = `
         <div class="card mb-3">
             <div class="card-body">
@@ -44,26 +40,26 @@ function displayTasks() {
         </div>
         `;
 
-        // Adiciona o card ao elemento da lista de tarefas
+
         todoList.appendChild(card);
 
-        // Adiciona um listener de evento para o botão de deletar a tarefa
+      
         card.querySelector('.delete-task').addEventListener('click', function () {
-            // Remove a tarefa do array
+
             tasks.splice(index, 1);
-            // Atualiza o localStorage com a lista de tarefas atualizada
+   
             localStorage.setItem("tasks", JSON.stringify(tasks));
-            // Reexibe a lista de tarefas atualizada
+
             displayTasks();
         });
 
-        // Adiciona um listener de evento para o botão de marcar/desmarcar a tarefa como concluída
+     
         card.querySelector('.check-task').addEventListener('click', function () {
-            // Alterna o status de concluída da tarefa
+
             task.completed = !task.completed;
-            // Atualiza o localStorage com a lista de tarefas atualizada
+
             localStorage.setItem("tasks", JSON.stringify(tasks));
-            // Reexibe a lista de tarefas atualizada
+
             displayTasks();
         });
 
@@ -96,9 +92,9 @@ if (searchBar) {
             const priority = card.querySelector(".badge").innerText.toLowerCase();
 
             if (title.includes(search) || priority.includes(search)) {
-                card.parentElement.style.display = "block";
+                card.style.display = "block";
             } else {
-                card.parentElement.style.display = "none";
+                card.style.display = "none";
             }
         });
     });

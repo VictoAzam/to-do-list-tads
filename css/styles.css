@@ -12,14 +12,6 @@
 
 
 
-#todo-list {
-  display: flex;          /* Flexbox para organizar os cards */
-  flex-wrap: wrap;        /* Permitir que os cards ocupem várias linhas */
-  gap: 20px;              /* Espaçamento entre os cards */
-  padding: 20px;
-  justify-content: flex-start; /* Alinhar os cards ao início do container */
-}
-
 h1{
   color: #ccc;
 }
@@ -40,10 +32,10 @@ background: rgb(35,35,36);background: linear-gradient(90deg, rgba(35,35,36,1) 0%
 
 }
 .card{
-  box-sizing: border-box;
-  margin-bottom: 20px; 
+  border-radius: 16px;
+  border: none; 
 }
-/* Botão de Adição Personalizado */
+
 .btn-custom-add {
   background-color: #192c1d; /* Verde personalizado */
   color: #fff; /* Texto branco */
